@@ -15,4 +15,5 @@ jobs:
         if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
         run: |
           echo "PR was merged into the main branch!"
+          echo "PR was merged into the main branch! and closed"
           echo "Merge Commit SHA: ${{ github.event.pull_request.merge_commit_sha }}"
