@@ -14,14 +14,8 @@ jobs:
   merge:
     runs-on: self-hosted
     steps:
-      - name: Check if push is to the main branch
-        if: github.ref == 'refs/heads/main'
-        run: |
-          echo "Push detected to the main branch!"
-          echo "Commit SHA: ${{ github.sha }}"
-
       - name: Check if PR is merged into main
-        if: github.event.pull_request.merged == true
+        if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
         run: |
           echo "PR was merged into the main branch!"
           echo "Merge Commit SHA: ${{ github.event.pull_request.merge_commit_sha }}"
