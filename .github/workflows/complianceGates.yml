@@ -3,8 +3,6 @@ name: complianceGates
 # Controls when the workflow will run
 on:
   workflow_dispatch:
-  push: 
-    branches: ['main']
     
 jobs:
 
