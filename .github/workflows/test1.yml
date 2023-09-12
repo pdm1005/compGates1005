@@ -1,4 +1,4 @@
-name: Merge Action
+name: compGatesTest1
 
 on:
   push:
