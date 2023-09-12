@@ -15,5 +15,9 @@ jobs:
         if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
         run: |
           echo "PR was merged into the main branch!"
-          echo "PR closed without merging"
           echo "Merge Commit SHA: ${{ github.event.pull_request.merge_commit_sha }}"
+          echo "PR URL: ${{ github.event.pull_request.html_url }}"
+          echo "Run ID: ${{ github.run_id }}"
+          echo "Run URL: ${{ github.run_url }}"
+          echo "Run Number: ${{ github.run_number }}"
+          echo "Current Datetime: ${{ steps.current_datetime.outputs.current_datetime }}"
