@@ -1,15 +1,27 @@
 name: compGatesTest1
 
+ 
+
 on:
   push:
     branches:
       - main
+  pull_request:
+    types:
+      - closed
 
 jobs:
   merge:
     runs-on: self-hosted
     steps:
-      - name: checking
+      - name: Check if push is to the main branch
+        if: github.ref == 'refs/heads/main'
+        run: |
+          echo "Push detected to the main branch!"
+          echo "Commit SHA: ${{ github.sha }}"
+
+      - name: Check if PR is merged into main
+        if: github.event.pull_request.merged == true
         run: |
           echo "PR was merged into the main branch!"
           echo "Merge Commit SHA: ${{ github.event.pull_request.merge_commit_sha }}"
