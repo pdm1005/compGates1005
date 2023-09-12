@@ -1,15 +1,15 @@
-name: Hello World
+name: Merge Action
+
 on:
   push:
-    branches: [ "main" ]
+    branches:
+      - main
 
 jobs:
-  hello_world_job:
+  merge:
     runs-on: self-hosted
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Print Hello World
+      - name: checking
         run: |
-          echo "Hello World!"
+          echo "PR was merged into the main branch!"
+          echo "Merge Commit SHA: ${{ github.event.pull_request.merge_commit_sha }}"
