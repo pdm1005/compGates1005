@@ -5,15 +5,12 @@ name: compGatesTest1
 on:
   push: 
     branches: [ "main" ]
-# on:
-#   workflow_dispatch:
 
 jobs:
   merge:
     runs-on: self-hosted
     steps:
       - name: Check if PR is merged into main
-        # if: github.event.pull_request.merged == true && github.event.pull_request.base.ref == 'main'
         run: |
           echo "PR was merged into the main branch!"
           echo "Merge Commit SHA: ${{ github.event.pull_request.merge_commit_sha }}"
