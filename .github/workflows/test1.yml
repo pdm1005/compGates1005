@@ -2,15 +2,15 @@ name: compGatesTest1
 
  
 
-# on:
-#   push: 
-#     branches: [ "main" ]
-on: 
-  workflow_dispatch:
+on:
+  push: 
+    branches: [ "main" ]
+# on: 
+#   workflow_dispatch:
 
 jobs:
   merge:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     steps:
       - name: Check if PR is merged into main
         run: |
